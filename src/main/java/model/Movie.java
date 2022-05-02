@@ -1,12 +1,12 @@
 package main.java.model;
 
-public class Movie {
+public class Movie implements Content {
 
     private String title;
 
     private String urlImage;
 
-    private Float rating;
+    private String rating;
 
     private Integer year;
 
@@ -20,42 +20,30 @@ public class Movie {
                 '}';
     }
 
-    public Movie(String title, String urlImage, Float rating, Integer year) {
+    public Movie(String title, String urlImage, String rating, Integer year) {
         this.title = title;
         this.urlImage = urlImage;
         this.rating = rating;
         this.year = year;
     }
 
-    public String getTitle() {
-        return title;
+    @Override
+    public String title() {
+        return this.title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    @Override
+    public String urlImage() {
+        return this.urlImage;
     }
 
-    public String getUrlImage() {
-        return urlImage;
+    @Override
+    public String rating() {
+        return this.rating;
     }
 
-    public void setUrlImage(String urlImage) {
-        this.urlImage = urlImage;
-    }
-
-    public Float getRating() {
-        return rating;
-    }
-
-    public void setRating(Float rating) {
-        this.rating = rating;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
+    @Override
+    public Integer year() {
+        return this.year;
     }
 }

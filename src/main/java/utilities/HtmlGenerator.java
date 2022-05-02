@@ -1,5 +1,6 @@
 package main.java.utilities;
 
+import main.java.model.Content;
 import main.java.model.Movie;
 
 import java.io.FileNotFoundException;
@@ -14,7 +15,7 @@ public class HtmlGenerator {
         this.writer = writer;
     }
 
-    public void generate(List<Movie> movies) {
+    public void generate(List<? extends Content> contentList) {
         writer.println("<html>");
         writer.println("<head>");
         writer.println("<link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css\" integrity=\"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T\" crossorigin=\"anonymous\">");
@@ -25,15 +26,15 @@ public class HtmlGenerator {
         writer.println("</head>");
         writer.println("<body>");
 
-        for (Movie movie : movies) {
+        for (Content content : contentList) {
             String div = "<div class=\"card text-white bg-dark mb-3\" style=\"max-width: 18rem;\">"
                     + "<h4 class=\"card-header\">%s</h4>"
                     + "<div class=\"card-body\">"
                     + "<img class=\"card-img\" src=\"%s\" alt=\"%s\">"
-                    + "<p class=\"card-text mt-2\">Nota: %s - Ano: %s</p>"
+                    + "<p class=\"card-text mt-2\">Rating: %s - Ano: %s</p>"
                     + " </div> </div>";
 
-            writer.println(String.format(div, movie.getTitle(), movie.getUrlImage(), movie.getTitle(), movie.getRating(), movie.getYear()));
+            writer.println(String.format(div, content.title(), content.urlImage(), content.title(), content.rating(), content.year()));
         }
         writer.println("</body>");
         writer.println("</html>");
