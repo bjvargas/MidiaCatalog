@@ -46,4 +46,9 @@ public class Movie implements Content {
     public Integer year() {
         return this.year;
     }
+
+    @Override
+    public int compareTo(Content content) {
+        return this.rating().compareTo(content.rating());
+    }
 }

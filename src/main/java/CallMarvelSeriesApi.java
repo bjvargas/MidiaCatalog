@@ -1,7 +1,6 @@
 package main.java;
 
 import main.java.model.Serie;
-import main.java.service.MarvelApiClient;
 import main.java.utilities.HtmlGenerator;
 import main.java.utilities.MarvelSeriesParseUsingJRE;
 

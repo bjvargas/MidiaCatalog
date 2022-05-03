@@ -36,4 +36,9 @@ public class Serie implements Content {
     public Integer year() {
         return this.startYear;
     }
+
+    @Override
+    public int compareTo(Content content) {
+        return this.year().compareTo(content.year());
+    }
 }
